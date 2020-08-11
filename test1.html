@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>Loading...</h2>
+<script type="text/javascript">
+	var h2 = document.querySelecter('h2');
+	function quatrinhHoc(totalMark, time) {
+		return new Promise(function (resole, reject) {
+			setTimeout(function(){
+				if (totalMark >= 9) {
+					resole(totalMark);
+				}else{
+					reject{'không đủ điều kiện sv xuất sắc'};
+
+				}
+			}, time);
+		})
+		}
+
+		var diemTongKet = prompt("nhập điểm tổng kết: ");
+
+		var time = prompt("thời gian delay: ");
+		quatrinhHoc(parseInt(diemTongKet), parseInt(time))
+		.then(function (mark) {
+			h2.innerText = 'di singapore, vì điểm tổng kết = ' + mark;
+		})
+		.catch(function (err) {
+			h2.innerText = err;
+		})
+</script>
+</body>
+</html>

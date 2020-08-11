@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+
+		function ThucDay(viectieptheo){
+			console.log("b1.Da ngu day!");
+			DaThucDay();
+		}
+
+		function DanhRang(viectieptheo){
+			console.log("b2.Dang danh rang");
+			setTimeout(function(){
+				console.log("Da danh rang xong!");
+				DanhRangXong();
+			}, 2000);
+		}
+
+		function ThayQuanAo(viectieptheo){
+			console.log("b3. Dang thay quan ao");
+			setTimeout(function(){
+				console.log("Da thay quan ao xong!");
+				ThayQuanAoXong();
+			}, 3000);
+		}
+
+		function DiHoc(viectieptheo){
+			DiDenTruong();
+		}
+
+		function DaThucDay() {
+			DanhRang(DanhRangXong);
+		}
+
+		function DanhRangXong() {
+			ThayQuanAo(ThayQuanAoXong);
+		}
+
+		function ThayQuanAoXong() {
+			DiHoc(DiDenTruong);
+		}
+
+		function DiDenTruong() {
+			console.log("b4. Dang di chuyen...");
+			setTimeout(function(){
+					console.log("Da den truong!");
+			}, 4000);
+		}
+
+		ThucDay(DaThucDay);
+		
+</script>
+
+</body>
+</html>

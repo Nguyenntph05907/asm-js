@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <div>
+  	<label for="">So dien thoai</label>
+  	<input type="" id="phonenumber" value="" placeholder="">
+  	<br>
+  	<span style="color: red" id="validateMsg"></span>
+  </div>
+ 
+  <script type="text/javascript">
+  	var input = document.querySelector("#phonenumber");
+  	var validateMsg = document.querySelector("#validateMsg");
+
+  	input.onblur = function(){
+  		var patt = /(09|03) + ([0-9] {8})\b/g;
+  		var check = patt.test(this.value);
+  		if (!check) {
+  			validateMsg.innerText= "ban nhap k dung so dien thoai.";
+  		}else{
+  			validateMsg.innerText = "ban nhap dung so dien thoai";
+  		}
+  	}
+  	
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	#target{
+		width: 60px;
+		height: 60px;
+		background: #33691E;
+	}
+</style>
+<div id="target">
+	
+</div>
+<script type="text/javascript">
+	var target= document.querySelector("#target");
+	target.onmouseover = function(){
+		this.style.background = "#BF360C"
+	}
+	target.onmouseout = function(){
+		this.style.background = "#33691E"
+	}
+</script>
+</body>
+</html>

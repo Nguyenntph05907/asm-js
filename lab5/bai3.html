@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nhapThongTinSV = new Promise(function (resolve, reject) {
+            var tenSV = prompt("Nhap ho va ten sv:");
+            var tenMonHoc = prompt("Nhap mon hoc:");
+
+            var sv = {
+                ten_sinh_vien: tenSV,
+                mon_hoc: tenMonHoc,
+            };
+            resolve(sv);
+        });
+
+        var nhapDiem = function (sv, message, time) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    var diem = prompt(message);
+
+                    var ketQua = {
+                        sv,
+                        diem
+                    };
+                    resolve(ketQua);
+                }, time);
+            });
+        }
+
+        nhapThongTinSV
+            .then(function (sv) {
+                return nhapDiem(sv, "Nhap diem lab 1:", 0);
+            })
+            .then(function (result) {
+                result.sv.lab1 = result.diem;
+                return nhapDiem(result.sv, "Nhap diem lab 2:", 3000);
+            })
+            .then(function (result) {
+                result.sv.lab2 = result.diem;
+                return nhapDiem(result.sv, "Nhap diem lab 3:", 4000);
+            })
+            .then(function (result) {
+                result.sv.lab3 = result.diem;
+                return nhapDiem(result.sv, "Nhap diem final:", 3000);
+            }).then(function (result) {
+                result.sv.final = result.diem;
+                var sv = result.sv;
+
+                var diem = parseInt(sv.lab1) * 0.1 + parseInt(sv.lab2) * 0.2
+                    + parseInt(sv.lab3) * 0.3 + parseInt(sv.final) * 0.4;
+
+                if (diem < 5) {
+                    alert("Hoc luc yeu");
+                } else if (diem < 7) {
+                    alert("Hoc luc trung binh kha");
+                }  else if (diem < 8.5) {
+                    alert("Hoc luc kha");
+                }  else {
+                    alert("Hoc luc gioi");
+                }
+            });
+    </script>
+</body>
+</html>

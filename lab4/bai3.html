@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  	<form onsubmit="submitHandler(event)">
+  		<input type="text" name="" id="name" required>
+  		<button>Enter</button>
+  	</form>
+  	<ul id="list"></ul>
+
+  	<script type="text/javascript">
+  		var arr = [];
+  		var submitHandler = function (event) {
+  			event.preventDefault();
+
+  			var text = document.getElementById('name').value;
+  			arr.push(text);
+  			arr.sort();
+  			var html = '';
+  			arr.forEach(function (element) {
+  				html += ('<li>' + element + '<li>')
+  			});
+
+  			document.getElementById('list').innerHTML = html;
+  		}
+  	</script>
+</body>
+</html>

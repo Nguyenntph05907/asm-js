@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" name="can_nang">
+    <input type="number" name="chieu_cao">
+
+    <button onclick="hienThiKetQua(calcBMI)">Enter</button>
+
+    <div>
+        <label>Chi so BMI cua ban la </label>
+        <label id="ket_qua"></label>
+    </div>
+
+    <script>
+        var calcBMI = function (chieuCao, canNang) {
+            return canNang / (chieuCao * chieuCao);
+        };
+        var hienThiKetQua = function (callback) {
+            var canNang = document.getElementById('can_nang').value;
+            var chieuCao = document.getElementById('chieu_cao').value;
+
+            var ketQua = callback(chieuCao, canNang);
+            document.getElementById('ket_qua').innerText = ketQua;
+        }
+    </script>
+</body>
+
+</html>

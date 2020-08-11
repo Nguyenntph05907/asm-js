@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<label>Ma VDV</label>
+		<label id="maVdv"></label>
+	</div>
+	<div>
+		<label>Ho ten</label>
+		<label id="hoten"></label>
+	</div>
+	<div>
+		<label>Ngay sinh</label>
+		<label id="ngaysinh"></label>
+	</div>
+	<div>
+		<label>Giai thuong</label>
+		<label id="giaithuong"></label>
+	</div>
+<script src="moment.min.js"></script>
+<script type="text/javascript">
+
+	function VanDongvien(maVdv, hoten, ngaysinh, giaithuong)
+	{
+		this.maVdv = maVdv;
+		this.hoten = hoten;
+		this.ngaysinh = ngaysinh;
+		this.giaithuong = giaithuong;
+		this.kiemtraDK = function (batdausukien, sotuoivdv) {
+			var tuoi = moment(batdausukien, 'DD-MM-YYYY').diff( moment(this.ngaysinh, 'DD-MM-YYYY'),
+				'years'
+				);
+			return tuoi >= 18;
+	
+		}
+		this.themgiaithuong = function (giaithuongmoi) {
+			this.giaithuong.unshift(giaithuongmoi)
+		}
+		this.danhsachgiaithuong = function () {
+			
+		}
+		this.hienthi = function () {
+			document.getElementsById("maVdv").innerText = this.maVdv;
+			
+			document.getElementsById("hoten").innerText = this.hoten;
+			document.getElementsById("ngaysinh").innerText = moment(this.ngaysinh, 'DD-MM-YYYY');
+			var html = '';
+
+			this.giaithuong.forEach(function (value) {
+				html += '<li>' + value + '</li>';
+				console.log(html);
+			});
+
+			document.getElementsById("giaithuong").innerHTML = html
+		}
+	}
+	var vdv1 = new VanDongvien(1, 'Nguyen Van A', moment('20-10-1996', 'DD-MM-YYYY'),  []);
+	vdv1.kiemtraDK(moment('20-10-1996', 'DD-MM-YYYY'), 18);
+	vdv1.themgiaithuong("Ong Vang");
+	vdv1.themgiaithuong("Ong Bac");
+	vdv1.danhsachgiaithuong();
+	vdv1.hienthi();
+</script>
+</body>
+</html>

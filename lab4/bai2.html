@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.square{
+		width: 60px;
+		height: 80px;
+		background-color: brown;
+	}
+</style>
+<body>
+	<div class="square" id="square"></div>
+	<button onclick="changeDivColor{}">Change Color</button>
+
+	<script type="text/javascript">
+		var changeDivColor = function () {
+			setTimeout(function(){
+				var color = randomColor();
+
+				document.getElementById('square').style.backgroundColor = color
+			}, 1000);
+		}
+		var randomColor = function(){
+			return '#' + Math.floor(Math.randomColor()*16777215).toString(16);
+		}
+	</script>
+</body>
+</html>

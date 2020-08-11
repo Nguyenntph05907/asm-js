@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<input type="text" id="input" >
+<button type="button" id="check">Check</button>
+<br>
+<h2>Chuoi dao nguoc: <span id="output"></span> </h2>
+<h2>Ket qua chuoi vua nhap:<span id="result"></span> </h2>
+<script>
+
+	var input= document.querySelector("#input");
+	var outputSpan = document.querySelector("#output");
+	var resultSpan = document.querySelector("#result");
+    var button = document.querySelector("#check");
+
+    button.onclick = function(){
+    	var inputValue = input.value;
+    	if (inputValue !== "" ) {
+    		var str2Arr = inputValue.split("");
+    		var reverseArr = str2Arr.reverse();
+    		var outputValue = reverseArr.join("");
+    		outputSpan.innerText = outputValue;
+    		if (outputValue === inputValue) {
+    			resultSpan.innerText = "la chuoi Palinedrome"
+    		}else{
+    			resultSpan.innerText = "khong phai chuoi Palinedrome"
+    		}
+    	}
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function ThucDay(viectieptheo) {
+		return new Promise(function(resole, reject){
+			console.log("b1.da ngu day!");
+			resole();
+		});
+		
+	}
+	function DanhRang(viectieptheo) {
+		console.log("b2.dang danh rang!");
+
+
+		return new Promise(function(resole, reject){
+		setTimeout(function(){
+			console.log("da danh rang xong!");
+			resole();
+		}, 2000);
+	});
+
+	}
+	function ThayQuanAo(viectieptheo) {
+		console.log("b3.dang thay quan ao!");
+
+		return new Promise(function(resole, reject){
+		setTimeout(function(){
+			console.log("da thay quan ao xong!");
+			resole();
+		}, 3000);
+	});
+	}
+	function DiHoc(viectieptheo) {
+		return new Promise(function(resole, reject){
+		resole();		
+	});
+}
+
+	ThucDay()
+	.then(DanhRang)
+	.then(ThayQuanAo)
+	.then(DiHoc)
+	.then(function(){
+		console.log("b4.dang di chuyen");
+					setTimeout(function(){
+						console.log("da den truong")
+					}, 4000);
+				});
+	// ThucDay(function() {
+	// 	DanhRang(function () {
+	// 		ThayQuanAo(function(){
+	// 			DiHoc(function () {
+	// 				console.log("b4.Đang di chuyển");
+	// 				setTimeout(function(){
+	// 					console.log("Đã đến trường")
+	// 				}, 4000)
+	// 			})
+	// 		})
+	// 	})
+	// })
+</script>
+</body>
+</html>
